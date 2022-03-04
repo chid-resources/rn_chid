@@ -2,7 +2,7 @@
   "name": "rn_chid",
   "version": "0.0.1",
   "description": "Personal React Native Template From Chid",
-  "repository": "https://github.com/chidambararajab/rn_chid.git",
+  "repository": "git@github.com:chidambararajab/rn_chid.git",
   "author": "Chid <chidambararaja97@gmail.com>",
   "license": "MIT"
 }
