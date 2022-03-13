@@ -9,11 +9,12 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Example from "@src/screens/example";
-import { NAVIGATION_CONSTANTS } from "@src/constants";
-import AppExample from "@src/screens/app/appExample";
-import AuthExample from "@src/screens/auth/authExample";
-import { COLORS, FONTFAMILYS, FONTS } from "@src/theme";
+import Example from "@screens/example";
+import { NAVIGATION_CONSTANTS } from "@constants";
+import AppExample from "@screens/app/appExample";
+import AuthExample from "@screens/auth/authExample";
+import { COLORS, FONTFAMILYS, FONTS } from "@theme";
+import ReAn from "@screens/app/ReAn";
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
@@ -32,9 +33,6 @@ export default function Tabs() {
         //   />
         // ),
       }}
-      tabBarOptions={{
-        showLabel: false,
-      }}
     >
       <Tab.Screen
         options={{
@@ -47,10 +45,7 @@ export default function Tabs() {
               // }}
             />
           ),
-          tabBarStyle: {
-            display: "flex",
-            // display: "none"
-          },
+          tabBarStyle: Styles.tabBarStyle,
         }}
         name={NAVIGATION_CONSTANTS.APP_EXAMPLE}
         component={AppExample}
@@ -60,10 +55,7 @@ export default function Tabs() {
           tabBarIcon: ({ focused }) => (
             <RenderFooterList title={"Auth"} isActive={focused} />
           ),
-          tabBarStyle: {
-            display: "flex",
-            // display: "none"
-          },
+          tabBarStyle: Styles.tabBarStyle,
         }}
         name={NAVIGATION_CONSTANTS.AUTH_EXAMPLE}
         component={AuthExample}
@@ -71,12 +63,19 @@ export default function Tabs() {
       <Tab.Screen
         options={{
           tabBarIcon: ({ focused }) => (
+            <RenderFooterList title={"ReAn"} isActive={focused} />
+          ),
+          tabBarStyle: Styles.tabBarStyle,
+        }}
+        name={NAVIGATION_CONSTANTS.RE_ANIMATED_EXAMPLE}
+        component={ReAn}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ focused }) => (
             <RenderFooterList title={"Exg"} isActive={focused} />
           ),
-          tabBarStyle: {
-            display: "flex",
-            // display: "none"
-          },
+          tabBarStyle: Styles.tabBarStyle,
         }}
         name={NAVIGATION_CONSTANTS.EXAMPLE}
         component={Example}
@@ -109,7 +108,6 @@ const Styles = StyleSheet.create({
   bgSize: {
     height: Platform.OS === "ios" ? 100 : 80,
     zIndex: -1,
-    backgroundColor: "#070707",
   },
   iconBg: {
     alignItems: "center",
@@ -126,5 +124,9 @@ const Styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: FONTS.LINE_HIGHT.tiny,
     fontWeight: "bold",
+  },
+  tabBarStyle: {
+    display: "flex",
+    showLabel: false,
   },
 });

@@ -7,6 +7,7 @@ import AuthExample from "@screens/auth/authExample";
 import AppExample from "@screens/app/appExample";
 import { NAVIGATION_CONSTANTS } from "@constants";
 import Example from "@screens/example";
+import ReAn from "@screens/app/ReAn";
 
 const RootStack = createNativeStackNavigator();
 const AuthStack = createNativeStackNavigator();
@@ -55,6 +56,10 @@ function AppStackScreen(params) {
       <AppStack.Screen
         name={NAVIGATION_CONSTANTS.APP_EXAMPLE}
         component={AppExample}
+      />
+      <AppStack.Screen
+        name={NAVIGATION_CONSTANTS.RE_ANIMATED_EXAMPLE}
+        component={ReAn}
       />
     </AppStack.Navigator>
   );

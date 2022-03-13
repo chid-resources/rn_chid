@@ -1,4 +1,4 @@
-import { REDUX_CONSTANTS } from "@src/constants";
+import { REDUX_CONSTANTS } from "@constants";
 
 const INITIAL_STATE = { quote: "", loading: false, error: "" };
 

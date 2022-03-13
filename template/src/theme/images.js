@@ -1,3 +1,6 @@
+export const LOTTIE = {
+  loader: require("@resources/lottie/loader.json"),
+};
 export const GIF = {
   loader: require("@resources/gif/loader.gif"),
 };

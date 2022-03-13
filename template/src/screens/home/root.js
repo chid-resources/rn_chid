@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { AuthContext } from "@routes/context";
-import Loader from "@components/Essentials/Loader";
+import Loader from "@components/";
 
 export default function Root() {
   const { app, auth, login } = useContext(AuthContext);

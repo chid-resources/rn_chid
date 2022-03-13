@@ -10,8 +10,7 @@
       "@routes/*": ["./src/routes/*"],
       "@services/*": ["./src/services/*"],
       "@theme/*": ["./src/theme/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@src/*": ["./src/*"]
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

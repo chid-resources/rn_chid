@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, StatusBar, StyleSheet } from "react-native";
-import LottieView from "lottie-react-native";
+import LinearGradient from "react-native-linear-gradient";
 
-import { IMAGES } from "@theme/";
 import { SIZE } from "@theme/";
 
-const Loader = (props) => {
+const Container = (props) => {
   const statusBarOptions = {
     light: {
       backgroundColor: "#f7f7f7",
@@ -33,12 +32,12 @@ const Loader = (props) => {
         backgroundColor={statusBar.backgroundColor}
         barStyle={statusBar.barStyle}
       />
-      <LottieView
-        source={IMAGES.LOTTIE.loader}
-        style={styles.loader}
-        autoPlay
-        loop
-      />
+      <LinearGradient
+        colors={["#f1f1f1", "#f9f9f9"]}
+        style={styles.linearGradient}
+      >
+        {props.children}
+      </LinearGradient>
     </View>
   );
 };
@@ -46,21 +45,18 @@ const Loader = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    zIndex: 1,
     width: SIZE.SCREEN_WIDTH,
-    height: SIZE.SCREEN_HEIGHT,
-    backgroundColor: "#f7f7f7",
+  },
+  linearGradient: {
+    flex: 1,
+    width: SIZE.SCREEN_WIDTH,
     justifyContent: "center",
     alignItems: "center",
+    paddingVertical: 20,
+    paddingHorizontal: 10,
     zIndex: 2,
-  },
-  loader: { height: 200, width: 200 },
-  gif: { height: 50, width: 50 },
-  message: {
-    color: "#070707",
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });
 
-export default Loader;
+export default Container;

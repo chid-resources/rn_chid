@@ -1,18 +1,12 @@
 import React, { useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "@components/Essentials/Loader";
 import { exampleAction } from "../redux/actions/exampleAction";
 import { COLORS } from "../theme";
-
-const deviceWidth = Dimensions.get("window").width;
+import { Container } from "@components/";
+import { SIZE } from "@theme";
 
 const Example = () => {
   const dispatch = useDispatch();
@@ -32,9 +26,9 @@ const Example = () => {
   }
 
   return (
-    <View style={Styles.container}>
+    <Container>
       <View>
-        <Text style={Styles.text}>{quote || "Loadig..."}</Text>
+        <Text style={Styles.text}>{quote || ""}</Text>
       </View>
       <View>
         <TouchableOpacity
@@ -44,14 +38,14 @@ const Example = () => {
           <Text style={{ color: COLORS.white }}>Quote</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </Container>
   );
 };
 
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: deviceWidth,
+    width: SIZE.SCREEN_WIDTH,
     backgroundColor: "#f7f7f7",
     justifyContent: "center",
     alignItems: "center",
