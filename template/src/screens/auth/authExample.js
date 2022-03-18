@@ -1,17 +1,34 @@
-import React from "react";
-import { Text, StyleSheet } from "react-native";
+import React, { useCallback } from "react";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 import { Loader } from "@components/";
 import { Container } from "@components/";
+import { BottomSheet } from "@components/";
+import { Button } from "@components/";
+import { SCREEN_HEIGHT } from "@theme/size";
 
 const AuthExample = () => {
-  if (true) {
+  const ref = React.useRef(null);
+
+  const bottomSheetHandler = useCallback(() => {
+    const isActive = ref?.current?.isActive();
+    if (isActive) {
+      ref?.current?.scrollTo(0);
+    } else {
+      ref?.current?.scrollTo(-300);
+    }
+  }, []);
+
+  if (false) {
     return <Loader />;
   }
 
   return (
     <Container>
-      <Text>Auth</Text>
+      <Button title="Open Model" onPress={() => bottomSheetHandler()} />
+      <BottomSheet ref={ref}>
+        <Text style={{ color: "#000", textAlign: "center" }}>Children</Text>
+      </BottomSheet>
     </Container>
   );
 };
